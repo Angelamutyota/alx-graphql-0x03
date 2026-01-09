@@ -4,6 +4,9 @@ import { EpisodeProps, EpisodesResponse, GetEpisodesResponse } from "@/interface
 import EpisodeCard from "@/components/common/EpisodeCard";
 import { useState } from "react";
 
+import ErrorProneComponent from "@/components/ErrorProneComponent";
+
+
 const Home: React.FC = () => {
   const [page, setPage] = useState<number>(1);
 
@@ -14,8 +17,8 @@ const Home: React.FC = () => {
   }
 );
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error</h1>;
+  return <ErrorProneComponent />;
+
 
   const results: EpisodeProps[] = data?.episodes.results ?? [];
   const info = data?.episodes.info;
